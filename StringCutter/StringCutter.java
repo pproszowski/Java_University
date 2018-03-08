@@ -9,7 +9,7 @@ public class StringCutter{
             int begin = Integer.parseInt(args[0]);
             int end = Integer.parseInt(args[1]) + 1;
             if(end < begin){
-                System.out.println("Second integer (endIndex) should be less than first integer (beginIndex)");
+                System.out.println("Second integer (endIndex) should be less or equal than first integer (beginIndex)");
             }
             String str = args[2];
             System.out.println(str.substring(begin, end));
