@@ -9,8 +9,6 @@ public class TrinomialSquareCalculator{
             int b = Integer.parseInt(args[1]);
             int c = Integer.parseInt(args[2]);
 
-            double delta = Math.pow(b,2) - 4 * a * c;
-
             if(a == 0){
                 solveLinearEquation(b,c);
             }else{
@@ -35,10 +33,13 @@ public class TrinomialSquareCalculator{
     }
 
     private static void solveTrinomialSquareEquation(int a, int b, int c){
+        double delta = Math.pow(b,2) - 4 * a * c;
         if(delta < 0){
-            System.out.println("There is no solution in interval of real numbers for passed parameters");
+            double solution1 = (-b - Math.sqrt(-delta))/(2*a);
+            double solution2 = (-b + Math.sqrt(-delta))/(2*a);
+            System.out.println("This equation has two solutions: x1=(0 +" + solution1 + "i) x2=(0 - " + solution2 + "i)");
         }else if(delta == 0){
-            int solution = -b/(2*a);
+            double solution = -b/(2*a);
             System.out.println("This equation has only one solution, x = " + solution);
         }else{
             double solution1 = (-b - Math.sqrt(delta))/(2*a);
