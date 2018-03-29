@@ -1,25 +1,35 @@
 import java.util.concurrent.ThreadLocalRandom;
 import java.io.*;
 import java.nio.*;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 
 public class WriteAndReadRandomSigns{
 
     final static int length = 1000;
     final static String path1 = "fileIO.txt";
     final static String path2 = "fileNIO.txt";
+    final static String path3 = "fileNIO2.txt";
 
     public static void main(String[] args){
         String randomString = generateRandomString(length);
         
         writeToFileIO(path1, randomString);
         writeToFileNIO(path2, randomString);
+        writeToFileNIO2(path3, randomString);
+
+        System.out.println("\n\n");
 
         System.out.println(readFromFileIO(path1));
+        System.out.println("");
         System.out.println(readFromFileNIO(path2));
+        System.out.println("");
+        System.out.println(readFromFileNIO2(path3));
     }
     
     private static String generateRandomString(int length){
@@ -40,7 +50,7 @@ public class WriteAndReadRandomSigns{
         PrintWriter writer = null;
         try{
             writer = new PrintWriter(path, "UTF-8");
-            writer.println(randomString);
+            writer.print(randomString);
         }catch(IOException e){
             System.out.println("Problem with writing to file (IO)");
         }finally{
@@ -61,6 +71,35 @@ public class WriteAndReadRandomSigns{
         }
 
         System.out.println("Write to file (NIO time): "+(System.nanoTime()-start));
+    }
+
+    private static void writeToFileNIO2(String path, String randomString){
+        long start = System.nanoTime();
+        FileOutputStream fos = null;
+        FileChannel fileChannel = null;
+        
+        try{
+            byte[] inputBytes = randomString.getBytes();
+            ByteBuffer buffer = ByteBuffer.wrap(inputBytes);
+            fos = new FileOutputStream(path);
+            fileChannel = fos.getChannel();
+            int noOfBytesWritten = fileChannel.write(buffer);
+        }catch(IOException e){
+            System.out.println("Problem with writing to file (NIO2)");
+        }finally{
+            try{
+                if(fileChannel != null){
+                    fileChannel.close();
+                }
+                if(fos != null){
+                    fos.close();
+                }
+            }catch(IOException e){
+                System.out.println("Problem with closing a file occured");
+            }
+        }
+
+        System.out.println("Write to file (NIO2 time): "+(System.nanoTime()-start));
     }
 
     private static String readFromFileIO(String path){
@@ -92,9 +131,8 @@ public class WriteAndReadRandomSigns{
     
     private static String readFromFileNIO(String path){
         long start = System.nanoTime();
-        StringBuilder sB = null;
+        StringBuilder sB = new StringBuilder();
         try{
-            sB = new StringBuilder();
             List<String> strings = Files.readAllLines(Paths.get(path));
 
             for(String str : strings){
@@ -106,6 +144,33 @@ public class WriteAndReadRandomSigns{
         }
 
         System.out.println("Read from file (NIO time): "+(System.nanoTime()-start));
+        return sB.toString();
+    }
+    
+    private static String readFromFileNIO2(String path){
+        long start = System.nanoTime();
+
+        StringBuilder sB = new StringBuilder();
+        String temp;
+        RandomAccessFile reader = null;
+        try{
+            reader = new RandomAccessFile(path, "rw");
+            while( (temp = reader.readLine()) != null ){
+                sB.append(temp);
+            }
+        }catch(IOException e){
+            System.out.println("Problem with reading from file (NIO2)");
+        }finally{
+            try{
+                if(reader != null){
+                    reader.close();
+                }
+            }catch(IOException e){
+                System.out.println("Problem with closing file (NIO2)");
+            }
+        }
+        
+        System.out.println("Read from file (NIO2 time): "+(System.nanoTime()-start));
         return sB.toString();
     }
 }

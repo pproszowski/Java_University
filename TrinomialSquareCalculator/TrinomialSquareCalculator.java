@@ -5,9 +5,9 @@ public class TrinomialSquareCalculator{
             return;
         }
         try{
-            int a = Integer.parseInt(args[0]);
-            int b = Integer.parseInt(args[1]);
-            int c = Integer.parseInt(args[2]);
+            double a = Double.parseDouble(args[0]);
+            double b = Double.parseDouble(args[1]);
+            double c = Double.parseDouble(args[2]);
 
             if(a == 0){
                 solveLinearEquation(b,c);
@@ -15,11 +15,11 @@ public class TrinomialSquareCalculator{
                 solveTrinomialSquareEquation(a, b, c);
             }
         }catch(NumberFormatException e){
-            System.out.println("Passed arguments should be integers");
+            System.out.println("Passed arguments should be numbers");
         }
     }
 
-    private static void solveLinearEquation(int b, int c){
+    private static void solveLinearEquation(double b, double c){
         if(b == 0){
             if(c == 0){
                 System.out.println("This equation has infinite number of solutions");
@@ -32,12 +32,13 @@ public class TrinomialSquareCalculator{
         }
     }
 
-    private static void solveTrinomialSquareEquation(int a, int b, int c){
+    private static void solveTrinomialSquareEquation(double a, double b, double c){
         double delta = Math.pow(b,2) - 4 * a * c;
         if(delta < 0){
-            double solution1 = (-b - Math.sqrt(-delta))/(2*a);
-            double solution2 = (-b + Math.sqrt(-delta))/(2*a);
-            System.out.println("This equation has two solutions: x1=(0 +" + solution1 + "i) x2=(0 - " + solution2 + "i)");
+            double realSolution = (-b)/(2*a);
+            double imagineSolution = (Math.sqrt(-delta))/(2*a);
+            System.out.println("This equation has two solutions: x1=(" + realSolution + " + " + imagineSolution + "i)");
+            System.out.println("x2=(" + realSolution + " - " + imagineSolution + "i)");
         }else if(delta == 0){
             double solution = -b/(2*a);
             System.out.println("This equation has only one solution, x = " + solution);

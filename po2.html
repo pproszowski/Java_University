@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-2">
+<link rel="Stylesheet" type="text/css" media="all" href="po2_files/style.css">
+
+<meta http-equiv="pragma" content="no-cache">
+<meta name="Description" content="Strona przedmiotu Programowanie obiektowe 2">
+<meta name="Keywords" content="java">
+</head>
+
+<body style="tab-interval:35.4pt" bgcolor="white" background="po2_files/back.html" vlink="blue" topmargin="0" marginwidth="0" marginheight="0" link="blue" leftmargin="0" lang="PL">
+
+<h1> Programowanie obiektowe 2 (Java) </h1>
+<br> <br>
+
+
+
+
+
+
+
+<h1>Przydatne linki</h1>
+
+<h2>Strony w j. angielskim</h2>
+
+<a href="http://www.oracle.com/technetwork/java/index.html">http://www.oracle.com/technetwork/java/index.html</a><br>
+<a href="http://docs.oracle.com/javase/tutorial/">Java Tutorial </a><br>
+<a href="http://www.javaworld.com/">http://www.javaworld.com</a><br>
+<a href="http://www.javalobby.com/">http://www.javalobby.com</a><p></p>
+
+<h2>Strony w j. polskim:</h2>
+
+<p class="MsoNormal"><a href="http://www.java.pl/">http://www.java.pl</a><br>
+<a href="http://www.jdn.pl/">http://www.jdn.pl</a><br>
+
+
+</p><h1>API</h1>
+
+<a href="https://docs.oracle.com/javase/8/docs/api/overview-summary.html">
+
+JSE 8 API Specification</a><br>
+
+
+
+
+<h2>Materialy wykladowe</h2>
+
+<a href="http://lux.dmcs.pl/po2/wyklady/java_1_basics.ppt">Java basics</a><br>
+<!--
+<a href="wyklady/java_2_object_classes_interfaces_packages_annotations.ppt">Objects, classes, interfaces, packages, annotations</a><br>
+<a href="wyklady/java_3_exceptions.ppt">Exceptions</a><br>
+<a href="wyklady/java_4_threads.ppt">Threads</a><br>
+-->
+
+
+
+
+<h2> Laboratorium</h2>
+<!--
+<h4> Uwaga! Cwiczenia 5-10 nalezy pokazac osobiscie prowadzacemu!</h4>
+-->
+<ol>
+<li>Napisz program czytajacy argumenty wywolania programu i konwertujacy je do Integer.
+Zmodyfikuj program w ten sposob, aby kolejne argumenty byly wspolczynikami wielomianu postaci Ax<sup>2</sup>+Bx+C=0. Policz pierwiastki tego wielomianu.
+</li><li>Napisz program, ktory pobiera dwie liczby oraz lancuch znakow z
+ wiersza polecen oraz wyswietla fragment podanego lancucha okreslony 
+wprowadzonymi liczbami. Na przyklad:
+<br>java Substring Witaj 2 4
+<br>powinien wyswietlic:
+<br>taj
+<br>Obsluz wszystkie mozliwe wyjatki, ktore moga wystapic w przypadku zlego zestawu argumentow.
+
+</li><li>Napisz program losujacy liczbe z zakresu 0-100. Nastepnie program pyta sie uzytkownika, co to za liczba.
+Jezeli uzytkownik nie zgadl, dowiaduje sie czy wylosowana liczba jest wieksza czy mniejsza od podanej.
+Jezeli zgadl, dowiaduje sie ile wykonal prob i jest pytany o ochote do dalszej gry.
+</li><li>Napisz program losujacy 1000 znakow i zapisz je do pliku, a 
+nastepnie odczytaj pliku i wypisz na ekran. Utworz dwie rozne pary 
+procedur zapisujaco/odczytujacych, raz korzystajac z pakietu java.io a 
+drugi raz z pakietu java.nio. Porownaj szybkosc zapisu i odczytu, wynik 
+wypisz na ekranie.
+</li><li>Napisz program proszacy o podanie 2 wektorow. Koniec wektora 
+oznacza sie za pomoca
+wcisniecia klawisza enter. Jezeli podany ciag nie jest liczba, jest 
+ignorowany.
+Nastepnie nalezy sprobowac dodac wektory, jezeli sa rownej dlugosci. 
+Jezeli nie, sa,
+rzucany jest wlasny wyjatek WektoryRoznejDlugosciException, za pomoca 
+ktorego mozna
+podac a nastepnie odczytac dlugosci tych wektorow. Jezeli sa rownej 
+dlugosci, wynik
+dodawania zapisywany jest do pliku. Jezeli nie sa rownej dlugosci, 
+uzytkownik jest proszony o ponowne wprowadzenie tych wektorow.
+
+
+</li><li>Napisz klase NrTelefoniczny, posiadajaca 2 pola: nrkierunkowy i
+ nrTelefonu i implementujaca interfejs Comparable. Nastepnie utworz 
+abstrakcyjna klase Wpis a nastepnie dziedziczace z niej klasy Osoba i 
+Firma. Klasa Wpis ma abstrakcyjna metode opis, ktora opisuje dany wpis. 
+Byc moze ma rowniez inne metody abstrakcyjne lub nie w miare potrzeb. 
+Klasa Osoba ma zawierac informacje o imieniu, nazwisku, adresie i (w tym
+ nrTelefonu). Klasa Firma ma miec nazwe i adres( w tym NrTelefonu). 
+Utworz kilka obiektow klasy Osoba i kilka obiektow klasy Firma i umiesc 
+je w kontenerze TreeMap, poslugujac sie jako kluczem numerem 
+telefonicznym. Nastepnie wypisz utworzona w ten sposob ksiazke 
+telefoniczna za pomoca iteratora.
+<!--
+<li>Napisz abstrakcyjna klase Lokalizacja a nastepnie dziedziczace z niej klasy Budynek, Pietro, Pokoj. Klasa lokalizacja ma abstrakcyjna metode opis, ktora opisuje dana Lokalizacje i wwszystkie jej podLokalizacje. Zaproponuj takie pola i metody klas Budynek, Pietro, Pokoj by zapewnialy one mozliwosc utworzenia trojstopniowej struktury hierarchicznej (Budynek -> Pietra (przypisane do budynku) -> Pokoje (przypisane do pietra)). 
+Kazdy obiekt klasy Lokalizacja powinien posiadac pole klasy Identyfikator. 
+Klasa Identyfikator posiada 3 pola (numer budynku, numer pietra, numer pokoju) i implementuje interfejs Comparable. 
+Zapewnij by w trakcie tworzenia hierarchicznej struktury zapewnione bylo automatyczne tworzenie identyfikatorow. 
+W oparciu o klase Identyfikator napisz metody sprawdzajace relacje pomiedzy dwoma dowolnymi lokalizacjami.
+-->
+<!--
+
+<li>Napisz program, ktory pobiera liste plikow z linii polecen i wyswietla liczbe wierszy kazdego z nich.
+Program powinien utworzyc jeden watek dla kazdego z plikow i uzyc tych watkow do zliczenia liczby wierszy kazdego z plikow rownoczenie.
+Utworz wersje programu, ktora odczytuje pliki nie jednoczesnie a sekwencyjnie.
+Porownaj wydajnosc wielowatkowego i jednowatkowego programu uzywajac System.currentTimeMillis() do okreslenia czasu wykonania.
+Porownania dokonaj dla dwoch, trzech i pieciu plikow.
+<li>Napisz program laczacy sie ze strona podana jako argument wywolania programu i wypisujacy
+wszystkie znalezione na niej linki i adresy email wykorzystujac w tym celu wyrazenia regularne (pakiet java.util.regex). Oprocz tego program ma zapisac do pliku wszystkie parametry polaczenia, adres IP komputera na ktorym znajduje sie strona oraz naglowek strony (zawartosc sekcji &lt;head&gt;).
+<li>Echo klient i echo serwer wielowatkowy (dla ulatwienia zacznij od jednowatkowego)
+<li>Aplikacja obslugujaca bank czasu. Klient zglasza (i wycofuje) uslugi jakie moze wykonac i ich terminy,  moze tez zarzadac wyswietlenia wszystkich dostepnych uslug w banku i zarezerwowac sobie wybrana usluge. Serwer rozsyla komunikaty o nowych, zarezerwowanych, niewykorzystanych i wycofanych uslugach i terminach do wszystkich klientow. Nalezy zadbac o odpowiednia synchronizacje dostepu do zasobow i ich aktualizacje. 
+
+
+-->
+
+</li></ol>
+
+<h2> Projekt </h2>
+<h3>Biblioteka oferujaca funkcjonalnosc prostej plikowej bazy danych.</h3>
+<br><br>
+W podstawowej wersji aplikacji musi byc zrealizowana funkcjonalnosc 
+Select, Insert, Update oraz Delete. Baza danych powinna miec mozliwosc 
+tworzenia co najmniej jednej tabeli, wieksza ilosc jest opcjonalna. 
+Aplikacja powinna posiadac interfejs w linii polecen umozliwiajacy jej 
+wygodna obsluge i  obslugiwac przyjazny dla uzytkownika sposob wyjatki 
+rzucane podczas pracy aplikacji.
+<br><br>
+Przyklad zastosowania przygotowanej biblioteki jest dowolny, np. 
+kartoteka ksiazek, baza kontaktow, baza danych wartosci pomiarowych.
+<br><br> Powyzsze funkcjonalnosci zostana ocenione maksymalnie na ocene 
+3. W celu uzyskania oceny wyzszej, nalezy zaimplementowac dodatkowe 
+elementy wypisane ponizej. Za kazdy dodatkowy element mozliwe jest 
+uzyskanie oceny o 1 wyzej. O ostatecznej ocenie decyduje jednak takze 
+poprawnosc kodu w rozumieniu jego przejrzystosci, poprawnie 
+zaimplementowanej obiektowosci i szeroko obslugiwanych bledow mozliwych 
+do popelnienia przez uzytkownika.
+<h4> Dodatkowe elementy (do wyboru) </h4>
+<ul>
+<li>implementacja klauzuli WHERE</li>
+<li>implementacja klauzuli GROUP</li>
+<li>interfejs graficzny w JavaFX</li>
+<li>mozliwosc tworzenia  polaczonych tabel (JOIN) </li>
+</ul>
+
+
+</body></html>

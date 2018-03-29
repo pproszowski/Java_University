@@ -10,7 +10,7 @@ public class GuessRandomNumberGame{
         int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
 
         while(decisionKey == 1){
-        Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             int numberOfAttempts = 0;
             int guess;
             try{
